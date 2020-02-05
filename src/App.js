@@ -4,23 +4,23 @@ import React from 'react';
       constructor(props) {
         super(props);
 
-        this.state = { to: 3, from: 10 };
+        this.state = { from: 3, to: 10 };
       }
     
-      componentDidMount(to) {
+      componentDidMount(from) {
        
         let timerFn = setInterval(() => {
-        var timeLeft = this.state.to + 1
+        var timeLeft = this.state.from + 1
         console.log(timeLeft)
           
-          if(timeLeft === this.state.from) {
+          if(timeLeft === this.state.to) {
             clearInterval(timerFn)
           }
           this.setState({
-            to: timeLeft
+            from: timeLeft
           })
         }, 1000)
-        return this.setState({timeLeft: to})
+        return this.setState({timeLeft: from})
       }
                      
       render() {
@@ -28,10 +28,9 @@ import React from 'react';
           'div',
           null,
           'Seconds: ',
-          this.state.to
+          this.state.from
         );
       }
     }
 
 export default Timer;
-// ReactDOM.render(<Timer />, document.getElementById('timer-example'));
